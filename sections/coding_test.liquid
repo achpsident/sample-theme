@@ -1,0 +1,27 @@
+div id="textsection">
+  <div class="simpletext">
+    <h1> {{ section.settings.text-box }} </h1>
+    <h3> {{ section.settings.text }} </h3>
+  </div>
+</div>
+
+
+{% schema %}
+   {
+    "name": "Coding Test",
+    "settings": [
+      {
+        "id": "text-box",
+        "type": "text",
+        "label": "Random Title",
+        "default": "Random Text"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
