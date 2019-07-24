@@ -25,46 +25,21 @@
   <label for="Quantity">quantity</label>
   <input type="number" id="Quantity" name="quantity" value="1" min="1">
   <button type="submit" name="add"
-
-   {% unless product.variants.first.inventory == 0 %}
-    class="color-button"
-   {% endunless %}
-
-
-   id="AddToCart" value="Purchase" onclick="addItem({{product.variants.first.id}}, 1); return false;" >
-{% if product.variants.first.inventory_quantity < 5  %}
-  Low stock
-
-{% else %}
-  Add to cart
-{% endif %}
-</button>
-
-
-  <!-- <script>
-    const addToCart = document.querySelector("#AddToCart");
-      if (addToCart) {
-      console.log("found");
-      addToCart.addEventListener("click", (event) => {
-        event.preventDefault();
-        console.log("test");
-
-    });
-    }
-  </script> -->
-<!--
-<input type="submit" name="add" value="Purchase" class="btn btn--purchase" onclick="addItem('add-to-cart'); return false; ">
- -->
+    {% unless product.variants.first.inventory == 0 %}
+      class="color-button"
+    {% endunless %}
+    id="AddToCart" value="Purchase" onclick="addItem({{product.variants.first.id}}, 1);return false;" >
+    {% if product.variants.first.inventory_quantity < 5  %}
+      Low stock
+    {% else %}
+      Add to cart
+    {% endif %}
+  </button>
 </form>
 <div>{{ product.description }}</div>
-<!--
-{{ product.variants.first.inventory_quantity}}
-{{ product.id}}
- -->
 <h4 id ="random-title">
 {{ settings.coding_test }}
 </h4>
-
 <button id="myBtn" hidden>Open Modal</button>
 <div id="myModal" class="modal">
   <div class="modal-content">
@@ -74,16 +49,16 @@
     <p> {{ cart.items}}<p>
   </div>
 </div>
-
-
+{% assign sorted_collection = collections[section.list_collection].products | sort:"title" %}
+{% for product in sorted_collections %}
+  <p>{{ product.title }} </p>
+{% endfor %}
 <script>
 const l = document.querySelector("#random-title")
 console.log(l.innerText);
-
 const modal = document.getElementById("myModal");
 const btn = document.getElementById("myBtn");
 const span = document.getElementsByClassName("close")[0];
-
 window.onload = function() {
   modal.style.display = "block";
 }
@@ -96,5 +71,3 @@ window.onclick = function(event) {
   }
 }
 </script>
-
-
