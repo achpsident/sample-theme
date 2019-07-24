@@ -11,16 +11,6 @@
   {{ 'application.scss.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }}
 
-  <script>
-    function addItem(form_id) {
-       $.ajax({
-          type: 'POST',
-          url: '/cart/add.js',
-          dataType: 'json',
-          data: $('#'+form_id).serialize()
-       });
-    }
-  </script>
 </head>
 <body>
 

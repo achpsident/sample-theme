@@ -13,8 +13,8 @@
       {
         "type": "text",
         "id": "coding_test",
-        "label": "Random Text",
-        "default": "Random Text",
+        "label": "Random Title",
+        "default": "Random Title",
         "info": "This is some random text that will be displayed"
       }
     ]
