@@ -24,6 +24,33 @@
   {{ current_variant.price | money }}
   <label for="Quantity">quantity</label>
   <input type="number" id="Quantity" name="quantity" value="1" min="1">
-  <button type="submit" name="add" id="AddToCart">Add to cart</button>
+  <button type="submit" name="add" id="AddToCart" value="Purchase" onclick="addItem('add-to-cart'); return false; " >Add to cart</button>
+  <!-- <script>
+    const addToCart = document.querySelector("#AddToCart");
+      if (addToCart) {
+      console.log("found");
+      addToCart.addEventListener("click", (event) => {
+        event.preventDefault();
+        console.log("test");
+
+    });
+    }
+  </script> -->
+<!--
+<input type="submit" name="add" value="Purchase" class="btn btn--purchase" onclick="addItem('add-to-cart'); return false; ">
+ -->
 </form>
 <div>{{ product.description }}</div>
+<h4>
+  {% if product.variants.first.available %}
+  123
+  {% else %}
+  456
+  {% endif %}
+</h4>
+
+{{ product.variants.first.inventory_quantity}}
+{{ product.id}}
+
+
+{{ settings.coding_test }}
